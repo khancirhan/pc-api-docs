@@ -394,7 +394,7 @@ const data = {
                     method: 'PUT',
                     url: '/organization',
                     description: "Update logged in user's organization details",
-                    requestBody: { name: 'string', url: 'string', primaryColor: 'string' },
+                    requestBody: { name: 'string', url: 'string', navColor: 'string' },
                     responses: [
                         {
                             code: 200,
