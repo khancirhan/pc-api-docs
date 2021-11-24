@@ -293,7 +293,7 @@ const data = {
                             description: 'integer',
                         },
                         {
-                            name: 'Date',
+                            name: 'date',
                             description: 'string',
                         },
                     ],
@@ -343,10 +343,23 @@ const data = {
                     ],
                 },
                 {
-                    method: 'POST',
+                    method: 'PUT',
                     url: '/profile',
                     description: "Update logged in user's profile",
-                    requestBody: {},
+                    requestBody: {
+                        name: 'string',
+                        email: 'string',
+                        phoneNumber: 'string',
+                        timezone: 'string',
+                        designation: 'string',
+                        dob: 'Date',
+                        primaryColor: 'string',
+                        view4k: 'boolean',
+                        timestampOnLivelapse: 'boolean',
+                        showProgressline: 'boolean',
+                        darkMode: 'boolean',
+                        adaptiveDarkMode: 'boolean',
+                    },
                     responses: [
                         {
                             code: 200,
