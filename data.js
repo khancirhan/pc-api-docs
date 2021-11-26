@@ -480,6 +480,27 @@ const data = {
                 },
                 {
                     method: 'GET',
+                    url: '/:invitationLink/validate',
+                    description: 'Validate invitation link',
+                    params: [
+                        {
+                            name: 'invitationLink',
+                            description: 'string',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: 200,
+                            body: {},
+                        },
+                        {
+                            code: 400,
+                            body: {},
+                        },
+                    ],
+                },
+                {
+                    method: 'GET',
                     url: '/:invitationLink',
                     description: 'Create user using invitation link',
                     params: [
