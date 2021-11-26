@@ -460,7 +460,17 @@ const data = {
                     method: 'POST',
                     url: '/invite',
                     description: 'Create and send invitation link to the user',
-                    requestBody: {},
+                    requestBody: {
+                        umPermission: 'boolean',
+                        configPermission: 'boolean',
+                        sharePermission: 'boolean',
+                        supportPermission: 'boolean',
+                        saveImagePermission: 'boolean',
+                        email: 'string',
+                        projectIds: ['integer'],
+                        signupUrl: 'string',
+                        teamId: 'integer',
+                    },
                     responses: [
                         {
                             code: 200,
