@@ -21,7 +21,46 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: [],
+                            body: {
+                                count: 'integer',
+                                rows: [
+                                    {
+                                        id: 'integer',
+                                        postText: 'string',
+                                        imageUrl: 'string',
+                                        hasAnnotation: 'boolean',
+                                        annotationContent: 'string',
+                                        fromMobile: 'boolean',
+                                        datetime: 'string',
+                                        cameraId: 'integer',
+                                        author: {
+                                            id: 'integer',
+                                            name: 'string',
+                                            designation: 'string',
+                                            dp: 'string',
+                                        },
+                                        userLikes: [
+                                            {
+                                                id: 'integer',
+                                                name: 'string',
+                                                dp: 'string',
+                                            },
+                                        ],
+                                        comments: [
+                                            {
+                                                id: 'integer',
+                                                comment: 'string',
+                                                datetime: 'string',
+                                                user: {
+                                                    id: 'integer',
+                                                    name: 'string',
+                                                    dp: 'string',
+                                                },
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
@@ -57,7 +96,41 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                postText: 'string',
+                                imageUrl: 'string',
+                                hasAnnotation: 'boolean',
+                                annotationContent: 'string',
+                                fromMobile: 'boolean',
+                                datetime: 'string',
+                                cameraId: 'integer',
+                                author: {
+                                    id: 'integer',
+                                    name: 'string',
+                                    designation: 'string',
+                                    dp: 'string',
+                                },
+                                userLikes: [
+                                    {
+                                        id: 'integer',
+                                        name: 'string',
+                                        dp: 'string',
+                                    },
+                                ],
+                                comments: [
+                                    {
+                                        id: 'integer',
+                                        comment: 'string',
+                                        datetime: 'string',
+                                        user: {
+                                            id: 'integer',
+                                            name: 'string',
+                                            dp: 'string',
+                                        },
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
@@ -111,7 +184,16 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                comment: 'string',
+                                datetime: 'string',
+                                user: {
+                                    id: 'integer',
+                                    name: 'string',
+                                    dp: 'string',
+                                },
+                            },
                         },
                     ],
                 },
@@ -149,7 +231,17 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: [],
+                            body: [
+                                {
+                                    id: 'integer',
+                                    name: 'string',
+                                    projectImage: 'string',
+                                    location: 'string',
+                                    loginStatus: 'string',
+                                    sortSeq: 'string',
+                                    camSort: 'string',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -166,7 +258,27 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                projectImage: 'string',
+                                location: 'string',
+                                loginStatus: 'string',
+                                sortSeq: 'string',
+                                camSort: 'string',
+                                projects: [
+                                    {
+                                        id: 'integer',
+                                        name: 'string',
+                                        projectImage: 'string',
+                                        location: 'string',
+                                        loginStatus: 'string',
+                                        sortSeq: 'string',
+                                        camSort: 'string',
+                                        isDroneProject: 'boolean',
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
@@ -183,7 +295,18 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: [],
+                            body: [
+                                {
+                                    id: 'integer',
+                                    name: 'string',
+                                    projectImage: 'string',
+                                    location: 'string',
+                                    loginStatus: 'string',
+                                    sortSeq: 'string',
+                                    camSort: 'string',
+                                    isDroneProject: 'boolean',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -200,7 +323,29 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                projectImage: 'string',
+                                location: 'string',
+                                loginStatus: 'string',
+                                sortSeq: 'string',
+                                camSort: 'string',
+                                isDroneProject: 'boolean',
+                                cameras: [
+                                    {
+                                        id: 'integer',
+                                        cameraName: 'string',
+                                        projectImage: 'string',
+                                        latestImage: 'string',
+                                        installDate: 'string',
+                                        installDateJs: 'string',
+                                        type: 'string',
+                                        status: 'string',
+                                        sortSeq: 'string',
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
@@ -500,7 +645,7 @@ const data = {
                     ],
                 },
                 {
-                    method: 'GET',
+                    method: 'POST',
                     url: '/:invitationLink',
                     description: 'Create user using invitation link',
                     params: [
@@ -512,7 +657,14 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                name: 'string',
+                                username: 'string',
+                                password: 'string',
+                                designation: 'string',
+                                timezone: 'string',
+                                dp: 'File',
+                            },
                         },
                     ],
                 },

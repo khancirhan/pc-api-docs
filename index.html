@@ -111,12 +111,44 @@
         <script src="data.js"></script>
 
         <script>
+            const keywords = [
+                {
+                    name: '"integer"',
+                    formatted: '<span style="color:#0dcaf0">integer</span>',
+                },
+                {
+                    name: '"string"',
+                    formatted: '<span style="color:#50ef50">string</span>',
+                },
+                {
+                    name: '"boolean"',
+                    formatted: '<span style="color:#dda707">boolean</span>',
+                },
+                {
+                    name: '"Date"',
+                    formatted: '<span style="color:#938cff">Date</span>',
+                },
+                {
+                    name: '"File"',
+                    formatted: '<span style="color:#b58909">File</span>',
+                },
+            ];
             const app = new Vue({
                 el: '#app',
                 data: data,
                 methods: {
                     handleJson: function (json) {
-                        return `<pre>${JSON.stringify(json, undefined, 4)}</pre>`;
+                        let formattedJson = JSON.stringify(json, undefined, 4);
+                        // Replace keywords with formatted keywords
+                        keywords.forEach((keyword) => {
+                            formattedJson = formattedJson.replaceAll(keyword.name, keyword.formatted);
+                        });
+                        //Replace empty quotes with line breaks
+                        formattedJson = formattedJson.replaceAll('""', '<br/>');
+                        // Replace double quotes in json
+                        formattedJson = formattedJson.replaceAll('"', '');
+
+                        return `<pre>${formattedJson}</pre>`;
                     },
                 },
             });
