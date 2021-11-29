@@ -111,7 +111,7 @@
         <script src="data.js"></script>
 
         <script>
-            const keywords = [
+            const tokens = [
                 {
                     name: '"integer"',
                     formatted: '<span style="color:#0dcaf0">integer</span>',
@@ -132,6 +132,22 @@
                     name: '"File"',
                     formatted: '<span style="color:#e94c4c">File</span>',
                 },
+                {
+                    name: '{',
+                    formatted: '<span style="color:#9653ff">{</span>',
+                },
+                {
+                    name: '}',
+                    formatted: '<span style="color:#9653ff">}</span>',
+                },
+                {
+                    name: '[',
+                    formatted: '<span style="color:#4fdd82">[</span>',
+                },
+                {
+                    name: ']',
+                    formatted: '<span style="color:#4fdd82">]</span>',
+                },
             ];
             const app = new Vue({
                 el: '#app',
@@ -139,9 +155,9 @@
                 methods: {
                     handleJson: function (json) {
                         let formattedJson = JSON.stringify(json, undefined, 4);
-                        // Replace keywords with formatted keywords
-                        keywords.forEach((keyword) => {
-                            formattedJson = formattedJson.replaceAll(keyword.name, keyword.formatted);
+                        // Replace tokens with formatted tokens
+                        tokens.forEach((token) => {
+                            formattedJson = formattedJson.replaceAll(token.name, token.formatted);
                         });
                         //Replace empty quotes with line breaks
                         formattedJson = formattedJson.replaceAll('""', '<br/>');
