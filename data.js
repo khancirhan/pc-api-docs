@@ -70,7 +70,7 @@ const data = {
                     description: 'Create new post',
                     requestBody: {
                         organisation: 'integer',
-                        annotationSet: '',
+                        annotationSet: 'File',
                         fromMobile: 'boolean',
                         postText: 'string',
                         imageUrl: 'string',
