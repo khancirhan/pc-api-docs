@@ -20,15 +20,16 @@
         />
         <link rel="stylesheet" href="assets/css/style.css" />
 
-        <title>ProgressCenter API Docs</title>
+        <title>API Docs</title>
     </head>
+
     <body>
         <div id="app">
             <div class="main">
                 <div class="container">
                     <div class="d-flex flex-column align-items-center mb-3">
-                        <h2 class="main-heading">ProgressCenter</h2>
-                        <a class="api-base-url">https://api.progresscenter.io</a>
+                        <h2 class="main-heading">{{heading}}</h2>
+                        <a class="api-base-url">{{url}}</a>
                     </div>
 
                     <div class="main-list" v-for="(module, outerIndex) in modules" :key="module.title">
@@ -114,43 +115,30 @@
             const tokens = [
                 {
                     name: '"integer"',
-                    formatted: '<span style="color:#0dcaf0">integer</span>',
+                    formatted: '<span style="color:#ce9178">integer</span>',
                 },
                 {
                     name: '"string"',
-                    formatted: '<span style="color:#50ef50">string</span>',
+                    formatted: '<span style="color:#4ec9b0">string</span>',
                 },
                 {
                     name: '"boolean"',
-                    formatted: '<span style="color:#dda707">boolean</span>',
+                    formatted: '<span style="color:#9cdcfe">boolean</span>',
                 },
                 {
                     name: '"Date"',
-                    formatted: '<span style="color:#938cff">Date</span>',
+                    formatted: '<span style="color:#c586c0">Date</span>',
                 },
                 {
                     name: '"File"',
-                    formatted: '<span style="color:#e94c4c">File</span>',
+                    formatted: '<span style="color:#dcdcaa">File</span>',
                 },
-                // {
-                //     name: '{',
-                //     formatted: '<span style="color:#9653ff">{</span>',
-                // },
-                // {
-                //     name: '}',
-                //     formatted: '<span style="color:#9653ff">}</span>',
-                // },
-                // {
-                //     name: '[',
-                //     formatted: '<span style="color:#4fdd82">[</span>',
-                // },
-                // {
-                //     name: ']',
-                //     formatted: '<span style="color:#4fdd82">]</span>',
-                // },
             ];
             const app = new Vue({
                 el: '#app',
+                created() {
+                    document.title = data.documentTitle;
+                },
                 data: data,
                 methods: {
                     handleJson: function (json) {

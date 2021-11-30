@@ -1,4 +1,13 @@
+const errorModel = {
+    timestamp: 'integer',
+    status: 'integer',
+    message: 'string',
+};
+
 const data = {
+    documentTitle: 'ProgressCenter API Docs',
+    heading: 'ProgressCenter',
+    url: 'https://api.progresscenter.io',
     modules: [
         // ProgressLine
         {
@@ -36,8 +45,8 @@ const data = {
                                         author: {
                                             id: 'integer',
                                             name: 'string',
-                                            designation: 'string',
                                             dp: 'string',
+                                            designation: 'string',
                                         },
                                         userLikes: [
                                             {
@@ -336,7 +345,6 @@ const data = {
                                     {
                                         id: 'integer',
                                         cameraName: 'string',
-                                        projectImage: 'string',
                                         latestImage: 'string',
                                         installDate: 'string',
                                         installDateJs: 'string',
@@ -395,7 +403,16 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                cameraName: 'string',
+                                type: 'string',
+                                status: 'string',
+                                project: {
+                                    id: 'integer',
+                                    name: 'string',
+                                },
+                            },
                         },
                     ],
                 },
@@ -417,6 +434,7 @@ const data = {
                         {
                             code: 200,
                             body: {
+                                location: 'string',
                                 climate: 'string',
                                 temperature: 'integer',
                             },
@@ -445,7 +463,16 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: [
+                                {
+                                    id: 'integer',
+                                    urlPreview: 'string',
+                                    urlThumb: 'string',
+                                    url4k: 'string',
+                                    date: 'string',
+                                    time: 'string',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -466,7 +493,16 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: [],
+                            body: [
+                                {
+                                    id: 'integer',
+                                    urlPreview: 'string',
+                                    urlThumb: 'string',
+                                    url4k: 'string',
+                                    date: 'string',
+                                    time: 'string',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -483,7 +519,22 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                email: 'string',
+                                phoneNumber: 'string',
+                                timezone: 'string',
+                                dp: 'string',
+                                designation: 'string',
+                                dob: 'Date',
+                                primaryColor: 'string',
+                                view4k: 'boolean',
+                                timestampOnLivelapse: 'boolean',
+                                showProgressline: 'boolean',
+                                darkMode: 'boolean',
+                                adaptiveDarkMode: 'boolean',
+                            },
                         },
                     ],
                 },
@@ -508,7 +559,22 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                email: 'string',
+                                phoneNumber: 'string',
+                                timezone: 'string',
+                                dp: 'string',
+                                designation: 'string',
+                                dob: 'Date',
+                                primaryColor: 'string',
+                                view4k: 'boolean',
+                                timestampOnLivelapse: 'boolean',
+                                showProgressline: 'boolean',
+                                darkMode: 'boolean',
+                                adaptiveDarkMode: 'boolean',
+                            },
                         },
                     ],
                 },
@@ -520,7 +586,9 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                dp: 'string',
+                            },
                         },
                     ],
                 },
@@ -531,7 +599,15 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                logo: 'string',
+                                bgImage: 'string',
+                                emailHeaderLogo: 'string',
+                                url: 'string',
+                                navColor: 'string',
+                            },
                         },
                     ],
                 },
@@ -543,7 +619,15 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                logo: 'string',
+                                bgImage: 'string',
+                                emailHeaderLogo: 'string',
+                                url: 'string',
+                                navColor: 'string',
+                            },
                         },
                     ],
                 },
@@ -555,19 +639,23 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                logo: 'string',
+                            },
                         },
                     ],
                 },
                 {
                     method: 'PUT',
-                    url: '/organization/emailHeader',
+                    url: '/organization/emailHeaderLogo',
                     description: "Update logged in user's organization email header",
                     requestBody: { file: 'File' },
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                emailHeaderLogo: 'string',
+                            },
                         },
                     ],
                 },
@@ -579,7 +667,7 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: '',
                         },
                     ],
                 },
@@ -591,7 +679,22 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                email: 'string',
+                                phoneNumber: 'string',
+                                timezone: 'string',
+                                dp: 'string',
+                                designation: 'string',
+                                dob: 'Date',
+                                primaryColor: 'string',
+                                view4k: 'boolean',
+                                timestampOnLivelapse: 'boolean',
+                                showProgressline: 'boolean',
+                                darkMode: 'boolean',
+                                adaptiveDarkMode: 'boolean',
+                            },
                         },
                     ],
                 },
@@ -619,7 +722,7 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: '',
                         },
                     ],
                 },
@@ -636,11 +739,11 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: '',
                         },
                         {
                             code: 400,
-                            body: {},
+                            body: errorModel,
                         },
                     ],
                 },
@@ -654,10 +757,19 @@ const data = {
                             description: 'string',
                         },
                     ],
+                    requestBody: {
+                        name: 'string',
+                        username: 'string',
+                        password: 'string',
+                        designation: 'string',
+                        timezone: 'string',
+                        dp: 'File',
+                    },
                     responses: [
                         {
                             code: 200,
                             body: {
+                                id: 'string',
                                 name: 'string',
                                 username: 'string',
                                 password: 'string',
@@ -681,7 +793,28 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                name: 'string',
+                                email: 'string',
+                                phoneNumber: 'string',
+                                timezone: 'string',
+                                dp: 'string',
+                                designation: 'string',
+                                dob: 'Date',
+                                primaryColor: 'string',
+                                view4k: 'boolean',
+                                timestampOnLivelapse: 'boolean',
+                                showProgressline: 'boolean',
+                                darkMode: 'boolean',
+                                adaptiveDarkMode: 'boolean',
+                                umPermission: 'boolean',
+                                configPermission: 'boolean',
+                                sharePermission: 'boolean',
+                                supportPermission: 'boolean',
+                                saveImagePermission: 'boolean',
+                                teamId: 'integer',
+                            },
                         },
                     ],
                 },
@@ -704,7 +837,7 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: '',
                         },
                     ],
                 },
@@ -722,7 +855,7 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: '',
                         },
                     ],
                 },
@@ -827,7 +960,17 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: [
+                                {
+                                    id: 'integer',
+                                    helpTopic: 'string',
+                                    subject: 'string',
+                                    issueDetail: 'string',
+                                    cameraName: 'string',
+                                    status: 'string',
+                                    dateTimestamp: 'string',
+                                },
+                            ],
                         },
                     ],
                 },
@@ -835,11 +978,26 @@ const data = {
                     method: 'POST',
                     url: '/',
                     description: 'Generate a new ticket',
-                    requestBody: {},
+                    requestBody: {
+                        helpTopic: 'string',
+                        subject: 'string',
+                        issueDetail: 'string',
+                        cameraName: 'string',
+                    },
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                helpTopic: 'string',
+                                subject: 'string',
+                                issueDetail: 'string',
+                                cameraName: 'string',
+                                status: 'string',
+                                dateTimestamp: 'string',
+                                phone: 'string',
+                                ext: 'string',
+                            },
                         },
                     ],
                 },
@@ -856,7 +1014,27 @@ const data = {
                     responses: [
                         {
                             code: 200,
-                            body: {},
+                            body: {
+                                id: 'integer',
+                                helpTopic: 'string',
+                                subject: 'string',
+                                issueDetail: 'string',
+                                cameraName: 'string',
+                                status: 'string',
+                                dateTimestamp: 'string',
+                                phone: 'string',
+                                ext: 'string',
+                                replies: [
+                                    {
+                                        id: 'integer',
+                                        type: 'string',
+                                        commentBy: 'string',
+                                        commentByUserId: 'string',
+                                        comment: 'string',
+                                        dateTimestamp: 'string',
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
