@@ -4,6 +4,13 @@ const ErrorModel = {
     message: 'string',
 };
 
+const FieldsErrorModel = [
+    {
+        param: 'string',
+        message: 'string',
+    },
+];
+
 const CommentModel = {
     id: 'integer',
     comment: 'string',
@@ -195,6 +202,10 @@ const data = {
                             code: '200',
                             body: {},
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -259,12 +270,16 @@ const data = {
                         },
                     ],
                     requestBody: {
-                        message: 'string',
+                        comment: 'string',
                     },
                     responses: [
                         {
                             code: '200',
                             body: CommentModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -389,6 +404,10 @@ const data = {
                         {
                             code: '200',
                             body: {},
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -533,6 +552,10 @@ const data = {
                             code: '200',
                             body: ProfileModel,
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -552,6 +575,10 @@ const data = {
                             body: {
                                 dp: 'string',
                             },
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -576,6 +603,10 @@ const data = {
                             code: '200',
                             body: OrganizationModel,
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -595,6 +626,10 @@ const data = {
                             body: {
                                 logo: 'string',
                             },
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -616,6 +651,10 @@ const data = {
                                 emailHeaderLogo: 'string',
                             },
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -628,6 +667,10 @@ const data = {
                             code: '200',
                             body: '',
                         },
+                        {
+                            code: '400',
+                            body: ErrorModel,
+                        },
                     ],
                 },
                 {
@@ -639,6 +682,10 @@ const data = {
                         {
                             code: '200',
                             body: ProfileModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -667,6 +714,10 @@ const data = {
                         {
                             code: '200',
                             body: '',
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -720,6 +771,10 @@ const data = {
                             code: '200',
                             body: '',
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -760,6 +815,10 @@ const data = {
                             code: '200',
                             body: '',
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -777,6 +836,10 @@ const data = {
                         {
                             code: '200',
                             body: '',
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -850,6 +913,10 @@ const data = {
                             code: '200',
                             body: TeamModel,
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -869,6 +936,10 @@ const data = {
                         {
                             code: '200',
                             body: TeamModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
@@ -921,6 +992,10 @@ const data = {
                             code: '200',
                             body: SupportTicketModel,
                         },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
                     ],
                 },
                 {
@@ -960,6 +1035,10 @@ const data = {
                         {
                             code: '200',
                             body: SupportTicketReplyModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
                         },
                     ],
                 },
