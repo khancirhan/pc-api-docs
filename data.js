@@ -190,12 +190,11 @@ const data = {
                         },
                     ],
                     requestBody: {
-                        organisation: 'integer',
-                        fromMobile: 'boolean',
                         postText: 'string',
                         imageUrl: 'string',
                         cameraId: 'integer',
-                        annotationContent: 'File',
+                        teamIds: ['integer'],
+                        postImage: 'File',
                     },
                     responses: [
                         {
