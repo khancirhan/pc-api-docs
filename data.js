@@ -1,7 +1,142 @@
-const errorModel = {
+const ErrorModel = {
     timestamp: 'integer',
     status: 'integer',
     message: 'string',
+};
+
+const CommentModel = {
+    id: 'integer',
+    comment: 'string',
+    datetime: 'Date',
+    user: {
+        id: 'integer',
+        name: 'string',
+        dp: 'string',
+    },
+};
+
+const ProgressLineModel = {
+    id: 'integer',
+    postText: 'string',
+    imageUrl: 'string',
+    hasAnnotation: 'boolean',
+    annotationUrl: 'string',
+    fromMobile: 'boolean',
+    datetime: 'Date',
+    author: {
+        id: 'integer',
+        name: 'string',
+        dp: 'string',
+        designation: 'string',
+    },
+    userLikes: [
+        {
+            id: 'integer',
+            name: 'string',
+            dp: 'string',
+        },
+    ],
+    comments: [CommentModel],
+};
+
+const SuperProjectModel = {
+    id: 'integer',
+    name: 'string',
+    imageUrl: 'string',
+    location: 'string',
+    isCctv: 'boolean',
+};
+
+const ProjectModel = {
+    id: 'integer',
+    name: 'string',
+    imageUrl: 'string',
+    location: 'string',
+    isCctv: 'boolean',
+    isDroneProject: 'boolean',
+};
+
+const CameraModel = {
+    id: 'integer',
+    cameraName: 'string',
+    installationDate: 'Date',
+    latestImageUrl: 'string',
+    latestImageTakenAt: 'Date',
+    type: 'string',
+};
+
+const CameraImageModel = {
+    id: 'integer',
+    urlPreview: 'string',
+    urlThumb: 'string',
+    url4k: 'string',
+    datetime: 'Date',
+};
+
+const ProfileModel = {
+    id: 'integer',
+    name: 'string',
+    email: 'string',
+    phoneNumber: 'string',
+    timezone: 'string',
+    dp: 'string',
+    designation: 'string',
+    dob: 'Date',
+    primaryColor: 'string',
+    view4k: 'boolean',
+    timestampOnLivelapse: 'boolean',
+    showProgressline: 'boolean',
+    darkMode: 'boolean',
+    adaptiveDarkMode: 'boolean',
+};
+
+const OrganizationModel = {
+    id: 'integer',
+    name: 'string',
+    logo: 'string',
+    bgImage: 'string',
+    emailHeaderLogo: 'string',
+    url: 'string',
+    navColor: 'string',
+};
+
+const UserModel = {
+    id: 'integer',
+    name: 'string',
+    username: 'string',
+    email: 'string',
+    dp: 'string',
+    designation: 'string',
+    umPermission: 'boolean',
+    configPermission: 'boolean',
+    sharePermission: 'boolean',
+    supportPermission: 'boolean',
+    saveImagePermission: 'boolean',
+    teamId: 'integer',
+    projectIds: ['integer'],
+};
+
+const TeamModel = {
+    id: 'integer',
+    teamName: 'string',
+};
+
+const SupportTicketModel = {
+    id: 'integer',
+    helpTopic: 'string',
+    subject: 'string',
+    issueDetail: 'string',
+    cameraName: 'string',
+    status: 'string',
+    datetime: 'Date',
+};
+
+const SupportTicketReplyModel = {
+    id: 'integer',
+    commentBy: 'string',
+    commentByUserId: 'string',
+    comment: 'string',
+    datetime: 'Date',
 };
 
 const data = {
@@ -29,46 +164,10 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 count: 'integer',
-                                rows: [
-                                    {
-                                        id: 'integer',
-                                        postText: 'string',
-                                        imageUrl: 'string',
-                                        hasAnnotation: 'boolean',
-                                        annotationContent: 'string',
-                                        fromMobile: 'boolean',
-                                        datetime: 'string',
-                                        cameraId: 'integer',
-                                        author: {
-                                            id: 'integer',
-                                            name: 'string',
-                                            dp: 'string',
-                                            designation: 'string',
-                                        },
-                                        userLikes: [
-                                            {
-                                                id: 'integer',
-                                                name: 'string',
-                                                dp: 'string',
-                                            },
-                                        ],
-                                        comments: [
-                                            {
-                                                id: 'integer',
-                                                comment: 'string',
-                                                datetime: 'string',
-                                                user: {
-                                                    id: 'integer',
-                                                    name: 'string',
-                                                    dp: 'string',
-                                                },
-                                            },
-                                        ],
-                                    },
-                                ],
+                                rows: [ProgressLineModel],
                             },
                         },
                     ],
@@ -77,17 +176,23 @@ const data = {
                     method: 'POST',
                     url: '/',
                     description: 'Create new post',
+                    headers: [
+                        {
+                            name: 'Content-Type',
+                            description: 'multipart/form-data',
+                        },
+                    ],
                     requestBody: {
                         organisation: 'integer',
-                        annotationSet: 'File',
                         fromMobile: 'boolean',
                         postText: 'string',
                         imageUrl: 'string',
                         cameraId: 'integer',
+                        annotationContent: 'File',
                     },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {},
                         },
                     ],
@@ -104,42 +209,8 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                postText: 'string',
-                                imageUrl: 'string',
-                                hasAnnotation: 'boolean',
-                                annotationContent: 'string',
-                                fromMobile: 'boolean',
-                                datetime: 'string',
-                                cameraId: 'integer',
-                                author: {
-                                    id: 'integer',
-                                    name: 'string',
-                                    designation: 'string',
-                                    dp: 'string',
-                                },
-                                userLikes: [
-                                    {
-                                        id: 'integer',
-                                        name: 'string',
-                                        dp: 'string',
-                                    },
-                                ],
-                                comments: [
-                                    {
-                                        id: 'integer',
-                                        comment: 'string',
-                                        datetime: 'string',
-                                        user: {
-                                            id: 'integer',
-                                            name: 'string',
-                                            dp: 'string',
-                                        },
-                                    },
-                                ],
-                            },
+                            code: '200',
+                            body: ProgressLineModel,
                         },
                     ],
                 },
@@ -155,7 +226,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -172,7 +243,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -192,17 +263,8 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                comment: 'string',
-                                datetime: 'string',
-                                user: {
-                                    id: 'integer',
-                                    name: 'string',
-                                    dp: 'string',
-                                },
-                            },
+                            code: '200',
+                            body: CommentModel,
                         },
                     ],
                 },
@@ -222,7 +284,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -239,18 +301,8 @@ const data = {
                     description: 'Get all super projects assigned to the logged in user',
                     responses: [
                         {
-                            code: 200,
-                            body: [
-                                {
-                                    id: 'integer',
-                                    name: 'string',
-                                    projectImage: 'string',
-                                    location: 'string',
-                                    loginStatus: 'string',
-                                    sortSeq: 'string',
-                                    camSort: 'string',
-                                },
-                            ],
+                            code: '200',
+                            body: [SuperProjectModel],
                         },
                     ],
                 },
@@ -266,27 +318,10 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
-                                id: 'integer',
-                                name: 'string',
-                                projectImage: 'string',
-                                location: 'string',
-                                loginStatus: 'string',
-                                sortSeq: 'string',
-                                camSort: 'string',
-                                projects: [
-                                    {
-                                        id: 'integer',
-                                        name: 'string',
-                                        projectImage: 'string',
-                                        location: 'string',
-                                        loginStatus: 'string',
-                                        sortSeq: 'string',
-                                        camSort: 'string',
-                                        isDroneProject: 'boolean',
-                                    },
-                                ],
+                                ...SuperProjectModel,
+                                projects: [ProjectModel],
                             },
                         },
                     ],
@@ -303,19 +338,8 @@ const data = {
                     description: 'Get all projects assigned to the logged in user',
                     responses: [
                         {
-                            code: 200,
-                            body: [
-                                {
-                                    id: 'integer',
-                                    name: 'string',
-                                    projectImage: 'string',
-                                    location: 'string',
-                                    loginStatus: 'string',
-                                    sortSeq: 'string',
-                                    camSort: 'string',
-                                    isDroneProject: 'boolean',
-                                },
-                            ],
+                            code: '200',
+                            body: [ProjectModel],
                         },
                     ],
                 },
@@ -331,28 +355,10 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
-                                id: 'integer',
-                                name: 'string',
-                                projectImage: 'string',
-                                location: 'string',
-                                loginStatus: 'string',
-                                sortSeq: 'string',
-                                camSort: 'string',
-                                isDroneProject: 'boolean',
-                                cameras: [
-                                    {
-                                        id: 'integer',
-                                        cameraName: 'string',
-                                        latestImage: 'string',
-                                        installDate: 'string',
-                                        installDateJs: 'string',
-                                        type: 'string',
-                                        status: 'string',
-                                        sortSeq: 'string',
-                                    },
-                                ],
+                                ...ProjectModel,
+                                cameras: [CameraModel],
                             },
                         },
                     ],
@@ -381,7 +387,7 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {},
                         },
                     ],
@@ -402,12 +408,11 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 id: 'integer',
                                 cameraName: 'string',
                                 type: 'string',
-                                status: 'string',
                                 project: {
                                     id: 'integer',
                                     name: 'string',
@@ -432,7 +437,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 location: 'string',
                                 climate: 'string',
@@ -462,17 +467,8 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
-                            body: [
-                                {
-                                    id: 'integer',
-                                    urlPreview: 'string',
-                                    urlThumb: 'string',
-                                    url4k: 'string',
-                                    date: 'string',
-                                    time: 'string',
-                                },
-                            ],
+                            code: '200',
+                            body: [CameraImageModel],
                         },
                     ],
                 },
@@ -492,17 +488,8 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
-                            body: [
-                                {
-                                    id: 'integer',
-                                    urlPreview: 'string',
-                                    urlThumb: 'string',
-                                    url4k: 'string',
-                                    date: 'string',
-                                    time: 'string',
-                                },
-                            ],
+                            code: '200',
+                            body: [CameraImageModel],
                         },
                     ],
                 },
@@ -518,23 +505,8 @@ const data = {
                     description: "Get logged in user's profile",
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                email: 'string',
-                                phoneNumber: 'string',
-                                timezone: 'string',
-                                dp: 'string',
-                                designation: 'string',
-                                dob: 'Date',
-                                primaryColor: 'string',
-                                view4k: 'boolean',
-                                timestampOnLivelapse: 'boolean',
-                                showProgressline: 'boolean',
-                                darkMode: 'boolean',
-                                adaptiveDarkMode: 'boolean',
-                            },
+                            code: '200',
+                            body: ProfileModel,
                         },
                     ],
                 },
@@ -558,23 +530,8 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                email: 'string',
-                                phoneNumber: 'string',
-                                timezone: 'string',
-                                dp: 'string',
-                                designation: 'string',
-                                dob: 'Date',
-                                primaryColor: 'string',
-                                view4k: 'boolean',
-                                timestampOnLivelapse: 'boolean',
-                                showProgressline: 'boolean',
-                                darkMode: 'boolean',
-                                adaptiveDarkMode: 'boolean',
-                            },
+                            code: '200',
+                            body: ProfileModel,
                         },
                     ],
                 },
@@ -582,10 +539,16 @@ const data = {
                     method: 'PUT',
                     url: '/dp',
                     description: "Update logged in user's dp",
-                    requestBody: { file: 'File' },
+                    headers: [
+                        {
+                            name: 'Content-Type',
+                            description: 'multipart/form-data',
+                        },
+                    ],
+                    requestBody: { dp: 'File' },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 dp: 'string',
                             },
@@ -598,16 +561,8 @@ const data = {
                     description: "Get logged in user's organization details",
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                logo: 'string',
-                                bgImage: 'string',
-                                emailHeaderLogo: 'string',
-                                url: 'string',
-                                navColor: 'string',
-                            },
+                            code: '200',
+                            body: OrganizationModel,
                         },
                     ],
                 },
@@ -618,16 +573,8 @@ const data = {
                     requestBody: { name: 'string', url: 'string', navColor: 'string' },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                logo: 'string',
-                                bgImage: 'string',
-                                emailHeaderLogo: 'string',
-                                url: 'string',
-                                navColor: 'string',
-                            },
+                            code: '200',
+                            body: OrganizationModel,
                         },
                     ],
                 },
@@ -635,10 +582,16 @@ const data = {
                     method: 'PUT',
                     url: '/organization/logo',
                     description: "Update logged in user's organization logo",
-                    requestBody: { file: 'File' },
+                    headers: [
+                        {
+                            name: 'Content-Type',
+                            description: 'multipart/form-data',
+                        },
+                    ],
+                    requestBody: { logo: 'File' },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 logo: 'string',
                             },
@@ -649,10 +602,16 @@ const data = {
                     method: 'PUT',
                     url: '/organization/emailHeaderLogo',
                     description: "Update logged in user's organization email header",
-                    requestBody: { file: 'File' },
+                    headers: [
+                        {
+                            name: 'Content-Type',
+                            description: 'multipart/form-data',
+                        },
+                    ],
+                    requestBody: { emailHeaderLogo: 'File' },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
                                 emailHeaderLogo: 'string',
                             },
@@ -666,7 +625,7 @@ const data = {
                     requestBody: { currentPassword: 'string', newPassword: 'string' },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -678,23 +637,8 @@ const data = {
                     requestBody: { teamName: 'string', timezone: 'string' },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                email: 'string',
-                                phoneNumber: 'string',
-                                timezone: 'string',
-                                dp: 'string',
-                                designation: 'string',
-                                dob: 'Date',
-                                primaryColor: 'string',
-                                view4k: 'boolean',
-                                timestampOnLivelapse: 'boolean',
-                                showProgressline: 'boolean',
-                                darkMode: 'boolean',
-                                adaptiveDarkMode: 'boolean',
-                            },
+                            code: '200',
+                            body: ProfileModel,
                         },
                     ],
                 },
@@ -721,7 +665,7 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -738,12 +682,12 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                         {
-                            code: 400,
-                            body: errorModel,
+                            code: '400',
+                            body: ErrorModel,
                         },
                     ],
                 },
@@ -751,6 +695,12 @@ const data = {
                     method: 'POST',
                     url: '/:invitationLink',
                     description: 'Create user using invitation link',
+                    headers: [
+                        {
+                            name: 'Content-Type',
+                            description: 'multipart/form-data',
+                        },
+                    ],
                     params: [
                         {
                             name: 'invitationLink',
@@ -767,16 +717,8 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'string',
-                                name: 'string',
-                                username: 'string',
-                                password: 'string',
-                                designation: 'string',
-                                timezone: 'string',
-                                dp: 'File',
-                            },
+                            code: '200',
+                            body: '',
                         },
                     ],
                 },
@@ -792,29 +734,8 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                name: 'string',
-                                email: 'string',
-                                phoneNumber: 'string',
-                                timezone: 'string',
-                                dp: 'string',
-                                designation: 'string',
-                                dob: 'Date',
-                                primaryColor: 'string',
-                                view4k: 'boolean',
-                                timestampOnLivelapse: 'boolean',
-                                showProgressline: 'boolean',
-                                darkMode: 'boolean',
-                                adaptiveDarkMode: 'boolean',
-                                umPermission: 'boolean',
-                                configPermission: 'boolean',
-                                sharePermission: 'boolean',
-                                supportPermission: 'boolean',
-                                saveImagePermission: 'boolean',
-                                teamId: 'integer',
-                            },
+                            code: '200',
+                            body: UserModel,
                         },
                     ],
                 },
@@ -836,7 +757,7 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -854,7 +775,7 @@ const data = {
                     requestBody: { projectsIds: ['integer'] },
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -871,7 +792,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -895,8 +816,25 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
-                            body: {},
+                            code: '200',
+                            body: {
+                                ...TeamModel,
+                            },
+                        },
+                        {
+                            code: '200 (includeMembers=true)',
+                            body: {
+                                ...TeamModel,
+                                users: [
+                                    {
+                                        id: 'integer',
+                                        name: 'string',
+                                        username: 'string',
+                                        email: 'string',
+                                        dp: 'string',
+                                    },
+                                ],
+                            },
                         },
                     ],
                 },
@@ -904,11 +842,13 @@ const data = {
                     method: 'POST',
                     url: '/',
                     description: 'Create a new team',
-                    requestBody: {},
+                    requestBody: {
+                        teamName: 'string',
+                    },
                     responses: [
                         {
-                            code: 200,
-                            body: {},
+                            code: '200',
+                            body: TeamModel,
                         },
                     ],
                 },
@@ -922,11 +862,13 @@ const data = {
                             description: 'integer',
                         },
                     ],
-                    requestBody: {},
+                    requestBody: {
+                        teamName: 'string',
+                    },
                     responses: [
                         {
-                            code: 200,
-                            body: {},
+                            code: '200',
+                            body: TeamModel,
                         },
                     ],
                 },
@@ -942,7 +884,7 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: '',
                         },
                     ],
@@ -959,18 +901,8 @@ const data = {
                     description: 'Get all support tickets',
                     responses: [
                         {
-                            code: 200,
-                            body: [
-                                {
-                                    id: 'integer',
-                                    helpTopic: 'string',
-                                    subject: 'string',
-                                    issueDetail: 'string',
-                                    cameraName: 'string',
-                                    status: 'string',
-                                    dateTimestamp: 'string',
-                                },
-                            ],
+                            code: '200',
+                            body: [SupportTicketModel],
                         },
                     ],
                 },
@@ -986,18 +918,8 @@ const data = {
                     },
                     responses: [
                         {
-                            code: 200,
-                            body: {
-                                id: 'integer',
-                                helpTopic: 'string',
-                                subject: 'string',
-                                issueDetail: 'string',
-                                cameraName: 'string',
-                                status: 'string',
-                                dateTimestamp: 'string',
-                                phone: 'string',
-                                ext: 'string',
-                            },
+                            code: '200',
+                            body: SupportTicketModel,
                         },
                     ],
                 },
@@ -1013,27 +935,10 @@ const data = {
                     ],
                     responses: [
                         {
-                            code: 200,
+                            code: '200',
                             body: {
-                                id: 'integer',
-                                helpTopic: 'string',
-                                subject: 'string',
-                                issueDetail: 'string',
-                                cameraName: 'string',
-                                status: 'string',
-                                dateTimestamp: 'string',
-                                phone: 'string',
-                                ext: 'string',
-                                replies: [
-                                    {
-                                        id: 'integer',
-                                        type: 'string',
-                                        commentBy: 'string',
-                                        commentByUserId: 'string',
-                                        comment: 'string',
-                                        dateTimestamp: 'string',
-                                    },
-                                ],
+                                ...SupportTicketModel,
+                                replies: [SupportTicketReplyModel],
                             },
                         },
                     ],
@@ -1048,11 +953,13 @@ const data = {
                             description: 'integer',
                         },
                     ],
-                    requestBody: {},
+                    requestBody: {
+                        comment: 'string',
+                    },
                     responses: [
                         {
-                            code: 200,
-                            body: {},
+                            code: '200',
+                            body: SupportTicketReplyModel,
                         },
                     ],
                 },
