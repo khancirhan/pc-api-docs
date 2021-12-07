@@ -148,7 +148,7 @@ const SupportTicketReplyModel = {
 
 const data = {
     documentTitle: 'ProgressCenter API Docs',
-    heading: 'ProgressCenter',
+    heading: 'ProgressCenter Docs',
     url: 'https://api.progresscenter.io',
     modules: [
         // ProgressLine
@@ -1034,6 +1034,211 @@ const data = {
                         {
                             code: '200',
                             body: SupportTicketReplyModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            title: 'Forwarding Hooks -  /projects/:projectId/cameras/:cameraId/forwardingHooks',
+            endpoints: [
+                {
+                    method: 'GET',
+                    url: '/aws',
+                    description: 'Get AWS forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/aws',
+                    description: 'Create or update AWS forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'GET',
+                    url: '/azure',
+                    description: 'Get Azure forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/azure',
+                    description: 'Create or update Azure forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'GET',
+                    url: '/ftp',
+                    description: 'Get FTP Server forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/ftp',
+                    description: 'Create or update FTP Server forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'GET',
+                    url: '/dropbox',
+                    description: 'Get Dropbox forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/dropbox',
+                    description: 'Create or update Dropbox forwarding hook',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: {},
                         },
                         {
                             code: '400',
