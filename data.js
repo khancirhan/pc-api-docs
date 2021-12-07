@@ -1078,6 +1078,7 @@ const data = {
                 },
             ],
         },
+        // Forwarding Hooks
         {
             title: 'Forwarding Hooks -  /projects/:projectId/cameras/:cameraId/forwardingHooks',
             endpoints: [
@@ -1310,6 +1311,120 @@ const data = {
                             body: {
                                 status: 'string',
                             },
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+            ],
+        },
+        // Whatsapp Bot
+        {
+            title: 'Whatsapp Bot -  /projects/:projectId/cameras/:cameraId/whatsappBot',
+            endpoints: [
+                {
+                    method: 'GET',
+                    url: '/',
+                    description: 'Get Whatsapp bot details',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: { mobileNumber: 'string', status: 'boolean' },
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/',
+                    description: 'Activate or update Whatsapp bot',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    requestBody: { mobileNumber: 'string' },
+                    responses: [
+                        {
+                            code: '200',
+                            body: AwsForwardHookModel,
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+            ],
+        },
+        // Reports
+        {
+            title: 'Reports -  /projects/:projectId/cameras/:cameraId/reports',
+            endpoints: [
+                {
+                    method: 'GET',
+                    url: '/scheduled',
+                    description: 'Get schedule of the scheduled report',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: { scheduleType: 'string' },
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/scheduled',
+                    description: 'Update schedule of the scheduled report',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    requestBody: { scheduleType: 'string' },
+                    responses: [
+                        {
+                            code: '200',
+                            body: { scheduleType: 'string' },
                         },
                         {
                             code: '400',
