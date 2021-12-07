@@ -146,6 +146,41 @@ const SupportTicketReplyModel = {
     datetime: 'Date',
 };
 
+const AwsForwardHookModel = {
+    accessKey: 'string',
+    secretKey: 'string',
+    regionEndpoint: 'string',
+    bucketName: 'string',
+    filepath: 'string',
+    status: 'string',
+};
+
+const AzureForwardHookModel = {
+    accountName: 'string',
+    accountKey: 'string',
+    regionEndpoint: 'string',
+    containerName: 'string',
+    filepath: 'string',
+    status: 'string',
+};
+
+const FtpForwardHookModel = {
+    hostname: 'string',
+    port: 'string',
+    username: 'string',
+    password: 'string',
+    filepath: 'string',
+    status: 'string',
+};
+
+const DropboxForwardHookModel = {
+    authorisationCode: 'string',
+    accessToken: 'string',
+    refreshToken: 'string',
+    filepath: 'string',
+    status: 'string',
+};
+
 const data = {
     documentTitle: 'ProgressCenter API Docs',
     heading: 'ProgressCenter Docs',
@@ -1063,7 +1098,7 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: AwsForwardHookModel,
                         },
                         {
                             code: '404',
@@ -1085,10 +1120,11 @@ const data = {
                             description: 'integer',
                         },
                     ],
+                    requestBody: AwsForwardHookModel,
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: AwsForwardHookModel,
                         },
                         {
                             code: '400',
@@ -1113,7 +1149,7 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: AzureForwardHookModel,
                         },
                         {
                             code: '404',
@@ -1135,10 +1171,11 @@ const data = {
                             description: 'integer',
                         },
                     ],
+                    requestBody: AzureForwardHookModel,
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: AzureForwardHookModel,
                         },
                         {
                             code: '400',
@@ -1163,7 +1200,7 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: FtpForwardHookModel,
                         },
                         {
                             code: '404',
@@ -1185,10 +1222,11 @@ const data = {
                             description: 'integer',
                         },
                     ],
+                    requestBody: FtpForwardHookModel,
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: FtpForwardHookModel,
                         },
                         {
                             code: '400',
@@ -1213,7 +1251,9 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: {
+                                status: 'string',
+                            },
                         },
                         {
                             code: '404',
@@ -1235,10 +1275,41 @@ const data = {
                             description: 'integer',
                         },
                     ],
+                    requestBody: DropboxForwardHookModel,
                     responses: [
                         {
                             code: '200',
-                            body: {},
+                            body: {
+                                status: 'string',
+                            },
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
+                {
+                    method: 'PUT',
+                    url: '/dropbox/status',
+                    description: 'Update Dropbox forwarding hook status',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    requestBody: { status: 'string' },
+                    responses: [
+                        {
+                            code: '200',
+                            body: {
+                                status: 'string',
+                            },
                         },
                         {
                             code: '400',
