@@ -463,9 +463,11 @@ const data = {
                         {
                             code: '200',
                             body: {
-                                id: 'integer',
-                                cameraName: 'string',
-                                type: 'string',
+                                camera: {
+                                    id: 'integer',
+                                    cameraName: 'string',
+                                    type: 'string',
+                                },
                                 project: {
                                     id: 'integer',
                                     name: 'string',
