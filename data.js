@@ -420,6 +420,33 @@ const data = {
             title: 'Camera -  /projects/:projectId/cameras',
             endpoints: [
                 {
+                    method: 'GET',
+                    url: '/',
+                    description: 'Get all cameras under a project',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'id',
+                            description: 'integer',
+                        },
+                    ],
+                    responses: [
+                        {
+                            code: '200',
+                            body: [
+                                {
+                                    id: 'integer',
+                                    cameraName: 'string',
+                                    type: 'string',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
                     method: 'POST',
                     url: '/',
                     description: 'Add camera under the project',
