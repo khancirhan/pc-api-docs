@@ -14,7 +14,7 @@ const FieldsErrorModel = [
 const CommentModel = {
     id: 'integer',
     comment: 'string',
-    datetime: 'Date',
+    datetime: 'string',
     user: {
         id: 'integer',
         name: 'string',
@@ -29,7 +29,7 @@ const ProgressLineModel = {
     hasAnnotation: 'boolean',
     annotationUrl: 'string',
     fromMobile: 'boolean',
-    datetime: 'Date',
+    datetime: 'string',
     author: {
         id: 'integer',
         name: 'string',
@@ -66,9 +66,9 @@ const ProjectModel = {
 const CameraModel = {
     id: 'integer',
     cameraName: 'string',
-    installationDate: 'Date',
+    installationDate: 'string',
     latestImageUrl: 'string',
-    latestImageTakenAt: 'Date',
+    latestImageTakenAt: 'string',
     type: 'string',
 };
 
@@ -77,7 +77,8 @@ const CameraImageModel = {
     urlPreview: 'string',
     urlThumb: 'string',
     url4k: 'string',
-    datetime: 'Date',
+    date: 'string',
+    time: 'string',
 };
 
 const ProfileModel = {
@@ -88,7 +89,7 @@ const ProfileModel = {
     timezone: 'string',
     dp: 'string',
     designation: 'string',
-    dob: 'Date',
+    dob: 'string',
     primaryColor: 'string',
     view4k: 'boolean',
     timestampOnLivelapse: 'boolean',
@@ -135,7 +136,7 @@ const SupportTicketModel = {
     issueDetail: 'string',
     cameraName: 'string',
     status: 'string',
-    datetime: 'Date',
+    datetime: 'string',
 };
 
 const SupportTicketReplyModel = {
@@ -143,7 +144,7 @@ const SupportTicketReplyModel = {
     commentBy: 'string',
     commentByUserId: 'string',
     comment: 'string',
-    datetime: 'Date',
+    datetime: 'string',
 };
 
 const AwsForwardHookModel = {
@@ -430,7 +431,7 @@ const data = {
                     ],
                     requestBody: {
                         name: 'string',
-                        installationDate: 'Date',
+                        installationDate: 'string',
                         powerSource: 'string',
                         mounting: 'string',
                     },
@@ -575,7 +576,7 @@ const data = {
                         phoneNumber: 'string',
                         timezone: 'string',
                         designation: 'string',
-                        dob: 'Date',
+                        dob: 'string',
                         primaryColor: 'string',
                         view4k: 'boolean',
                         timestampOnLivelapse: 'boolean',
