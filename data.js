@@ -49,7 +49,7 @@ const ProgressLineModel = {
 const SuperProjectModel = {
     id: 'integer',
     name: 'string',
-    imageUrl: 'string',
+    projectImage: 'string',
     location: 'string',
     isCctv: 'boolean',
 };
@@ -57,7 +57,7 @@ const SuperProjectModel = {
 const ProjectModel = {
     id: 'integer',
     name: 'string',
-    imageUrl: 'string',
+    projectImage: 'string',
     location: 'string',
     isCctv: 'boolean',
     isDroneProject: 'boolean',
