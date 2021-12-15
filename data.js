@@ -1030,6 +1030,10 @@ const data = {
                             code: '200',
                             body: '',
                         },
+                        {
+                            code: '400',
+                            body: ErrorModel,
+                        },
                     ],
                 },
             ],
