@@ -952,24 +952,24 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: {
-                                ...TeamModel,
-                            },
+                            body: [TeamModel],
                         },
                         {
                             code: '200 (includeMembers=true)',
-                            body: {
-                                ...TeamModel,
-                                users: [
-                                    {
-                                        id: 'integer',
-                                        name: 'string',
-                                        username: 'string',
-                                        email: 'string',
-                                        dp: 'string',
-                                    },
-                                ],
-                            },
+                            body: [
+                                {
+                                    ...TeamModel,
+                                    users: [
+                                        {
+                                            id: 'integer',
+                                            name: 'string',
+                                            username: 'string',
+                                            email: 'string',
+                                            dp: 'string',
+                                        },
+                                    ],
+                                },
+                            ],
                         },
                     ],
                 },
