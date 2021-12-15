@@ -1031,7 +1031,7 @@ const data = {
                             body: '',
                         },
                         {
-                            code: '400',
+                            code: '404',
                             body: ErrorModel,
                         },
                     ],
