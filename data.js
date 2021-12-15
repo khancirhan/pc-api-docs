@@ -926,10 +926,6 @@ const data = {
                             code: '200',
                             body: '',
                         },
-                        {
-                            code: '404',
-                            body: ErrorModel,
-                        },
                     ],
                 },
             ],
@@ -1029,10 +1025,6 @@ const data = {
                         {
                             code: '200',
                             body: '',
-                        },
-                        {
-                            code: '404',
-                            body: ErrorModel,
                         },
                     ],
                 },
