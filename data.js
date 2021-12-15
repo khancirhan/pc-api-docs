@@ -801,7 +801,7 @@ const data = {
                             body: '',
                         },
                         {
-                            code: '400',
+                            code: '404',
                             body: ErrorModel,
                         },
                     ],
@@ -838,6 +838,10 @@ const data = {
                         {
                             code: '400',
                             body: FieldsErrorModel,
+                        },
+                        {
+                            code: '404',
+                            body: ErrorModel,
                         },
                     ],
                 },
