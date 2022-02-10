@@ -1401,7 +1401,7 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: ' ',
+                            body: '',
                         },
                         {
                             code: '400',
