@@ -77,8 +77,7 @@ const CameraImageModel = {
     urlPreview: 'string',
     urlThumb: 'string',
     url4k: 'string',
-    date: 'string',
-    time: 'string',
+    datetime: 'string',
 };
 
 const ProfileModel = {
@@ -572,7 +571,7 @@ const data = {
                     responses: [
                         {
                             code: '200',
-                            body: [CameraImageModel],
+                            body: [{ ...CameraImageModel, urlThumb: undefined, url4k: undefined }],
                         },
                     ],
                 },
