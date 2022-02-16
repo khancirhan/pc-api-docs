@@ -1465,6 +1465,32 @@ const data = {
                         },
                     ],
                 },
+                {
+                    method: 'POST',
+                    url: '/instant',
+                    description: 'Generate instant report',
+                    params: [
+                        {
+                            name: 'projectId',
+                            description: 'integer',
+                        },
+                        {
+                            name: 'cameraId',
+                            description: 'integer',
+                        },
+                    ],
+                    requestBody: { reportType: 'string' },
+                    responses: [
+                        {
+                            code: '200',
+                            body: 'File',
+                        },
+                        {
+                            code: '400',
+                            body: FieldsErrorModel,
+                        },
+                    ],
+                },
             ],
         },
     ],
